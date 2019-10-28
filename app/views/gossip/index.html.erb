@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <h1 class="display-4">The Gossip Project 🤭</h1>
+  <p class="lead">Crée maintenant ton premier gossip en quelques secondes.</p>
+  <a href="#" class="btn btn-primary btn-lg" role="button">✏️ Nouveau Gossip</a>
+</div>
+
+<div class="d-flex flex-wrap justify-content-around mx-4">
+  <% @gossips.each do |gossip| %>
+    <!-- on fait une boucle pour afficher chaque gossip -->
+    <div class="card m-4" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
+        <p class="card-text"><%= @users.find(gossip.user_id).first_name %></p>
+        <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

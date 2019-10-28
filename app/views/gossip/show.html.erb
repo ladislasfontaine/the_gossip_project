@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @gossip.title %> 📜</h1>
+  <p class="lead"></p>
+  <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
+</div>
+
+<div class="card text-center mx-auto m-5" style="max-width: 50rem;">
+  <div class="card-header text-muted">
+    <%= @gossip_creation_date %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @gossip.title %></h5>
+    <p class="card-text"><%= @gossip.content %></p>
+    <span class="btn btn-primary"><%= link_to 'Auteur', author_path(@gossip.user_id) %></span>
+  </div>
+</div>

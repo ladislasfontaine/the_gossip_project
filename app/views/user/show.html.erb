@@ -1,0 +1,47 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @user.first_name %> <%= @user.last_name %> 👋</h1>
+  <p class="lead"></p>
+  <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
+</div>
+
+<div class="card text-center mx-auto m-5" style="max-width: 50rem;">
+  <div class="card-header text-muted">
+    Nombre d'articles écrits : <%= @user.gossips.count %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Auteur</h5>
+    <p class="card-text"><%= @user.first_name %> <%= @user.last_name %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Description</h5>
+    <p class="card-text"><%= @user.description %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Email</h5>
+    <p class="card-text"><%= @user.email %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Age</h5>
+    <p class="card-text"><%= @user.age %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Ville</h5>
+    <p class="card-text"><%= @user.city.name %> (<%= @user.city.zip_code %>)</p>
+  </div>
+</div>
+
+<h2 class="text-center">Tous les gossips de <%= @user.first_name %> :</h2>
+
+<div class="d-flex flex-column justify-content-around">
+  <% @user.gossips.each do |gossip| %>
+    <!-- on fait une boucle pour afficher chaque gossip -->
+    <div class="card m-4 mx-auto" style="max-width: 50rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
+        <p class="card-text"><%= gossip.content %></p>
+        <p class="card-text"><%= @user.first_name %></p>
+        <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
