@@ -1,10 +1,11 @@
 <h1>The Gossip Project 💻</h1>
 
-On crée une base de données pour The Gossip Project avec des utilisateurs qui écrivent des potins, qui peuvent les commenter, s'envoyer des messages...
+The Gossip Project prend forme avec des views pour afficher les infos de notre base de données.
 
 * Ruby version 2.5.1
 * Rails version 5.2.3
 * `bundle install`
+* `rails db:create`
 * `rails db:migrate`
 * `rails db:seed`
 * rendez-vous dans la console pour tester tout ça...
