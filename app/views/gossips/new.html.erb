@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <h1 class="display-4">Créer un gossip 📜</h1>
+  <p class="lead"></p>
+  <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
+</div>
+
+<div class="card text-center mx-auto my-2" style="max-width: 50rem;">
+  <div class="card-header text-muted">
+    <%= DateTime.now.strftime("%A, %d %b %Y %l:%M %p") %>
+  </div>
+  <div class="card-body">
+    <%= form_tag gossips_path, method: "post", class: "form-group" do %>
+      <div class="form-group form-check">
+        <%= label_tag 'Titre' %>
+        <%= text_field_tag 'title', nil, class: "form-control", placeholder: "Titre" %>
+      </div>
+
+      <div class="form-group form-check">
+        <%= label_tag 'Contenu' %>
+        <%= text_area_tag 'content', nil, class: "form-control", placeholder: "Dis nous tout..." %>
+      </div>
+
+      <%= submit_tag "Créer ✅", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

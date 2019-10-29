@@ -32,16 +32,14 @@
 
 <h2 class="text-center">Tous les gossips de <%= @user.first_name %> :</h2>
 
-<div class="d-flex flex-column justify-content-around">
-  <% @user.gossips.each do |gossip| %>
-    <!-- on fait une boucle pour afficher chaque gossip -->
-    <div class="card m-4 mx-auto" style="max-width: 50rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
-        <p class="card-text"><%= gossip.content %></p>
-        <p class="card-text"><%= @user.first_name %></p>
-        <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
-      </div>
+<% @user.gossips.each do |gossip| %>
+  <!-- on fait une boucle pour afficher chaque gossip -->
+  <div class="card my-4 mx-auto" style="max-width: 50rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
+      <p class="card-text"><%= gossip.content %></p>
+      <p class="card-text"><%= @user.first_name %></p>
+      <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
