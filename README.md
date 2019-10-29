@@ -30,6 +30,10 @@ n-to-n :
 * `gossips` - `tags` (liés par `gossip_tags`)
 * `users` - `users` (liés par `private_messages`)
 
+<h2>To Do</h2>
+
+* ajouter un formulaire de contact qui envoie les infos par mail
+
 --------
 
 Fait par [Ladislas](https://github.com/ladislasfontaine) 🤙 en utilisant les ressources de [The Hacking Project](https://www.thehackingproject.org)
