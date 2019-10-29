@@ -34,7 +34,7 @@ end
 
 20.times do |index|
   gossips << Gossip.create(
-    title: Faker::Lorem.word.capitalize,
+    title: Faker::Hipster.word.capitalize,
     content: Faker::Hipster.paragraph,
     user: users.sample
   )

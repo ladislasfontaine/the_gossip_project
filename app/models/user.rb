@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   validates :first_name, :last_name, :description, :age, presence: true
-  validates :description, length: { minimum: 40 }
   validates :email,
     presence: true,
     uniqueness: true,

@@ -1,5 +1,5 @@
 class Tag < ApplicationRecord
-  validates :tag,
+  validates :title,
     presence: true
 
   has_many :gossip_tags
