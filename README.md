@@ -32,7 +32,11 @@ n-to-n :
 
 <h2>To Do</h2>
 
-* ajouter un formulaire de contact qui envoie les infos par mail
+* un formulaire de contact qui envoie les infos par mail
+* pouvoir classer les gossips affichés sur index par tags
+
+* afficher les tags relatifs à chaque gossip DONE
+
 
 --------
 
