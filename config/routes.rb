@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :gossips do
-    resources :comments, except: [:show] 
+    resources :comments, except: [:show]
   end
 
   # get '/gossips/:id', to: 'gossip#show', as: 'gossip'
