@@ -33,6 +33,8 @@ n-to-n :
 
 <h2>To Do</h2>
 
+* Rassembler tout sur le controller users et virer user
+* Page pour modifier les infos d'un user quand il est connecté
 * un formulaire de contact qui envoie les infos par mail
 * pouvoir classer les gossips affichés sur index par tags
 

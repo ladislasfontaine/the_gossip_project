@@ -34,6 +34,11 @@
                 <%= link_to 'Contact', contact_path %>
               </li>
           </div>
+
+          <span class="relative-right">
+            <%= link_to 'Créer un compte', new_user_path %> / <%= link_to 'Se connecter', new_session_path %>
+             / <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
+          </span>
         </nav>
       </header>
 

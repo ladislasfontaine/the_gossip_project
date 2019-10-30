@@ -27,7 +27,8 @@ end
     description: Faker::Lorem.sentence,
     email: Faker::Internet.email,
     age: rand(18..90),
-    city: cities.sample
+    city: cities.sample,
+    password: "bonjour"
   )
   # on crée nos 10 users et on leur attribue une ville
 end

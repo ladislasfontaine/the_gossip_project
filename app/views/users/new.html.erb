@@ -1,0 +1,42 @@
+<div class="jumbotron">
+  <h1 class="display-4">Créer un compte 🤖</h1>
+  <p class="lead"></p>
+  <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
+</div>
+
+<div class="card text-center mx-auto my-2" style="max-width: 50rem;">
+  <div class="card-header text-muted">
+    <%= DateTime.now.strftime("%A, %d %b %Y %l:%M %p") %>
+  </div>
+  <div class="card-body">
+    <%= form_tag users_path, method: "post", class: "form-group" do %>
+
+      <div class="form-group form-check">
+        <%= label_tag 'Prénom' %>
+        <%= text_field_tag 'first_name', nil, class: "form-control" %>
+      </div>
+
+      <div class="form-group form-check">
+        <%= label_tag 'Nom' %>
+        <%= text_field_tag 'last_name', nil, class: "form-control" %>
+      </div>
+
+      <div class="form-group form-check">
+        <%= label_tag 'Email' %>
+        <%= text_field_tag 'email', nil, class: "form-control" %>
+      </div>
+
+      <div class="form-group form-check">
+        <%= label_tag 'Mot de passe' %>
+        <%= text_field_tag 'password', nil, class: "form-control" %>
+      </div>
+
+      <div class="form-group form-check">
+        <%= label_tag 'Confirmation du mot de passe' %>
+        <%= text_field_tag 'password_confirmation', nil, class: "form-control" %>
+      </div>
+
+      <%= submit_tag "Créer ✅", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,9 +1,11 @@
 class User < ApplicationRecord
-  validates :first_name, :last_name, :description, :age, presence: true
+  has_secure_password
+  validates :first_name, :last_name, :email, :password, presence: true # :description, :age, 
   validates :email,
-    presence: true,
     uniqueness: true,
-    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }  
+    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
+  validates :password,
+    length: { minimum: 6 }
 
   belongs_to :city
   has_many :gossips

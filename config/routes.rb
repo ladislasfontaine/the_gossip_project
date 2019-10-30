@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :cities, only: [:show]
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
   resources :gossips do
     resources :comments, except: [:show]
   end
