@@ -1,7 +1,9 @@
 <div class="jumbotron">
   <h1 class="display-4"><%= @gossip.title %> 📜</h1>
   <p class="lead"></p>
-  <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
+  <span class="btn btn-primary"><%= link_to '🔙 Accueil', root_path %></span>
+  <span class="btn btn-secondary"><%= link_to 'Éditer', edit_gossip_path %></span>
+  <a href="<%= gossip_path %>" class="btn btn-secondary" data-confirm="C'est ton dernier mot ?" data-method="DELETE">Supprimer</a>
 </div>
 
 <div class="d-flex justify-content-center">
@@ -12,11 +14,12 @@
 
 <div class="card text-center mx-auto mb-5 mt-2" style="max-width: 50rem;">
   <div class="card-header text-muted">
-    <%= @gossip_creation_date %>
+    <%= @gossip_update_date %>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= @gossip.title %></h5>
     <p class="card-text"><%= @gossip.content %></p>
     <span class="btn btn-primary"><%= link_to 'Auteur', author_path(@gossip.user_id) %></span>
+    <p class="card-text mt-2">⬇️<br><%= @gossip.user.first_name %> de <%= @gossip.user.city.name %></p>
   </div>
 </div>

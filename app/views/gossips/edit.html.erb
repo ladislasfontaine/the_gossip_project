@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1 class="display-4">Créer un gossip 📜</h1>
+  <h1 class="display-4">Éditer un gossip 📜</h1>
   <p class="lead"></p>
   <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
 </div>
@@ -9,18 +9,18 @@
     <%= DateTime.now.strftime("%A, %d %b %Y %l:%M %p") %>
   </div>
   <div class="card-body">
-    <%= form_tag gossips_path, method: "post", class: "form-group" do %>
+    <%= form_tag gossip_path, method: "patch", class: "form-group" do %>
       <div class="form-group form-check">
         <%= label_tag 'Titre' %>
-        <%= text_field_tag 'title', nil, class: "form-control", placeholder: "Titre" %>
+        <%= text_field_tag 'title', @gossip.title, class: "form-control" %>
       </div>
 
       <div class="form-group form-check">
         <%= label_tag 'Contenu' %>
-        <%= text_area_tag 'content', nil, rows: 5, class: "form-control", placeholder: "Dis nous tout..." %>
+        <%= text_area_tag 'content', @gossip.content, rows: 5, class: "form-control" %>
       </div>
 
-      <%= submit_tag "Créer ✅", class: "btn btn-primary" %>
+      <%= submit_tag "Modifier ✅", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
