@@ -1,0 +1,42 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @city.name %> 🛣</h1>
+  <p class="lead"></p>
+</div>
+
+<div class="card text-center mx-auto m-5" style="max-width: 50rem;">
+  <div class="card-header text-muted">
+    Nombre d'articles écrits à <%= @city.name %> : <%= @city.users.map{ |user| user.gossips.count }.sum %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Ville</h5>
+    <p class="card-text"><%= @city.name %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Code postal</h5>
+    <p class="card-text"><%= @city.zip_code %></p>
+  </div>
+</div>
+
+<h2 class="text-center">Tous les gossips écrits à <%= @city.name %> :</h2>
+
+<% if @city.users.map{ |user| user.gossips.count }.sum > 0 %>
+  <% @city.users.each do |user| %>
+    <% user.gossips.each do |gossip| %>
+      <!-- on fait une boucle pour afficher chaque gossip -->
+      <div class="card my-4 mx-auto" style="max-width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
+          <p class="card-text"><%= gossip.content %></p>
+          <p class="card-text"><%= user.first_name %></p>
+          <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="card my-4 mx-auto" style="max-width: 50rem;">
+    <div class="card-body">
+      <p class="card-text">Aucun gossip écrit à <%= @city.name %>...</p>
+    </div>
+  </div>
+<% end %>

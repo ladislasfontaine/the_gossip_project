@@ -8,7 +8,8 @@ The Gossip Project prend forme avec des views pour afficher les infos de notre b
 * `rails db:create`
 * `rails db:migrate`
 * `rails db:seed`
-* rendez-vous dans la console pour tester tout ça...
+* `rails server`
+* rendez-vous sur `http://localhost:3000/` pour tester tout ça...
 
 <h2>Tables</h2>
 
@@ -34,9 +35,6 @@ n-to-n :
 
 * un formulaire de contact qui envoie les infos par mail
 * pouvoir classer les gossips affichés sur index par tags
-
-* afficher les tags relatifs à chaque gossip DONE
-
 
 --------
 

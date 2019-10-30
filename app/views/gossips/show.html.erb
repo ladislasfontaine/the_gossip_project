@@ -19,7 +19,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= @gossip.title %></h5>
     <p class="card-text"><%= @gossip.content %></p>
-    <span class="btn btn-primary"><%= link_to 'Auteur', author_path(@gossip.user_id) %></span>
+    <%= link_to 'Auteur', author_path(@gossip.user_id), class: "btn btn-primary" %> <%= link_to 'Ville', city_path(@gossip.user.city_id), class: "btn btn-primary" %>
     <p class="card-text mt-2">⬇️<br><%= @gossip.user.first_name %> de <%= @gossip.user.city.name %></p>
   </div>
 </div>
