@@ -6,12 +6,17 @@
 
 <div class="d-flex flex-wrap justify-content-around mx-4">
   <% @gossips.sort.each do |gossip| %>
-    <!-- on fait une boucle pour afficher chaque gossip // .sort_by!{ |gossip| gossip.id } -->
+    <!-- on fait une boucle pour afficher chaque gossip -->
     <div class="card m-4" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
-        <p class="card-text"><%= @users.find(gossip.user_id).first_name %></p>
-        <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
+        <p class="card-text">
+          <%= @users.find(gossip.user_id).first_name %> <!-- on récupère le prénom de l'auteur de l'article en question -->
+          (<%= pluralize @comments.select{ |comment| comment.gossip_id == gossip.id }.count, "comment" %>)
+          <!-- affiche le nombre de commentaires pour l'article en sélectionnant les commentaires -->
+          <!-- méthode "pluralize" pour mettre "comment" au pluriel -->
+        </p>
+        <%= link_to 'Go', gossip_path(gossip.id), class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
