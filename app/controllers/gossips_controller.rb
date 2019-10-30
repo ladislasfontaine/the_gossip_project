@@ -9,6 +9,7 @@ class GossipsController < ApplicationController
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
     @gossip = Gossip.find(params[:id])
     @gossip_update_date = @gossip.updated_at.strftime("%A, %d %b %Y %l:%M %p")
+    @users = User.all
   end
 
   def new

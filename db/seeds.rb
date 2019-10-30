@@ -46,6 +46,10 @@ gossips.each do |gossip|
     GossipTag.create!(gossip: gossip, tag: tags.sample)
   end
   # on lie chacun de nos gossips avec 1, 2 ou 3 tags de façon aléatoire
+  rand(0..2).times do |index|
+    Comment.create!(gossip: gossip, user: users.sample, content: Faker::Hipster.sentence)
+  end
+  # on lie chacun de nos gossips avec 0, 1 ou 2 comments de façon aléatoire
 end
 
 6.times do |index|
