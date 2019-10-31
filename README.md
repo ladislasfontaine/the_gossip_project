@@ -21,7 +21,7 @@ Les différentes tables :
 * `gossip_tags` : table qui lie gossips et tags
 * `private_messages` : contenu envoyé par un utilisateur à un (ou plusieurs) autre utilisateur
 
-![alt text](http://url/to/db.png)
+![Architecture Base de données](app/assets/images/db.png)
 
 <h2>Relations</h2>
 
