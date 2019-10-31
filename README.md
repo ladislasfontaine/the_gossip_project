@@ -1,6 +1,6 @@
 <h1>The Gossip Project 💻</h1>
 
-The Gossip Project prend forme avec des views pour afficher les infos de notre base de données.
+The Gossip Project amélioré tout au long d'une semaine.
 
 * Ruby version 2.5.1
 * Rails version 5.2.3
@@ -21,6 +21,8 @@ Les différentes tables :
 * `gossip_tags` : table qui lie gossips et tags
 * `private_messages` : contenu envoyé par un utilisateur à un (ou plusieurs) autre utilisateur
 
+<img src="db.png" />
+
 <h2>Relations</h2>
 
 1-to-n :
@@ -31,12 +33,12 @@ n-to-n :
 * `gossips` - `tags` (liés par `gossip_tags`)
 * `users` - `users` (liés par `private_messages`)
 
-<h2>To Do</h2>
+<h2>Améliorations possibles</h2>
 
-* Rassembler tout sur le controller users et virer user
 * Page pour modifier les infos d'un user quand il est connecté
 * un formulaire de contact qui envoie les infos par mail
 * pouvoir classer les gossips affichés sur index par tags
+* ...
 
 --------
 
