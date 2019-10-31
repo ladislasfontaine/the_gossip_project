@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1 class="display-4">Créer un compte 🤖</h1>
   <p class="lead"></p>
-  <span class="btn btn-primary btn-lg"><%= link_to '🔙 Accueil', root_path %></span>
+  <%= link_to '🔙 Accueil', root_path, class: 'btn btn-primary btn-lg' %>
 </div>
 
 <div class="card text-center mx-auto my-2" style="max-width: 50rem;">
@@ -36,7 +36,8 @@
         <%= text_field_tag 'password_confirmation', nil, class: "form-control" %>
       </div>
 
-      <%= submit_tag "Créer ✅", class: "btn btn-primary" %>
+      <%= submit_tag "Créer ✅", class: "btn btn-primary" %><br>
+      <%= link_to 'Déjà un compte ? Se connecter', new_session_path, class: 'blue_link' %>
     <% end %>
   </div>
 </div>

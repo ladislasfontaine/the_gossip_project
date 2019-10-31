@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user, only: [:create]
+
   def index
   end
 
   def create
     @gossip = Gossip.find(params[:gossip_id])
-    @comment = Comment.new(user: User.first, gossip: @gossip, content: params[:content])
+    @comment = Comment.new(gossip: @gossip, content: params[:content])
+    @comment.user = current_user
     if @comment.save
       flash[:success] = "You created a Comment!"
       redirect_to gossip_path(@gossip.id)

@@ -1,9 +1,11 @@
 <div class="jumbotron">
   <h1 class="display-4"><%= @gossip.title %> 📜</h1>
   <p class="lead"></p>
-  <span class="btn btn-primary"><%= link_to '🔙 Accueil', root_path %></span>
-  <span class="btn btn-secondary"><%= link_to 'Éditer', edit_gossip_path %></span>
-  <a href="<%= gossip_path %>" class="btn btn-secondary" data-confirm="C'est ton dernier mot ?" data-method="DELETE">Supprimer</a>
+  <%= link_to '🔙 Accueil', root_path, class: 'btn btn-primary' %>
+  <% if creator?(@gossip) %>
+    <%= link_to 'Éditer', edit_gossip_path, class: 'btn btn-secondary' %>
+    <a href="<%= gossip_path %>" class="btn btn-secondary" data-confirm="C'est ton dernier mot ?" data-method="DELETE">Supprimer</a>
+  <% end %>
 </div>
 
 <div class="d-flex justify-content-center">
@@ -32,7 +34,12 @@
 
     <% if @gossip.comments.count > 0 %>
       <% @gossip.comments.each do |comment| %>
-        <h5 class="card-title"><%= @users.find(comment.user_id).first_name %> <%= link_to 'Éditer', edit_gossip_comment_path(@gossip.id, comment.id), class: 'btn btn-secondary btn-sm' %></h5>
+        <h5 class="card-title">
+          <%= @users.find(comment.user_id).first_name %> 
+          <% if creator?(comment) %>
+            <%= link_to 'Éditer', edit_gossip_comment_path(@gossip.id, comment.id), class: 'btn btn-secondary btn-sm' %>            
+          <% end %>
+        </h5>
         <p class="card-text"><%= comment.content %></p>
       <% end %>
     <% else %>

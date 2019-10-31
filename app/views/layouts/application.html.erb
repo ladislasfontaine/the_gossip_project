@@ -8,9 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/cf51025f41.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/ico" href="emoji.jpg" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
@@ -36,8 +35,19 @@
           </div>
 
           <span class="relative-right">
-            <%= link_to 'Créer un compte', new_user_path %> / <%= link_to 'Se connecter', new_session_path %>
-             / <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
+            <% if logged_in? %>
+              <a href="#">Bonjour <%= current_user.first_name %></a> / <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
+            <% else %>
+              <div class="btn-group mr-5">
+                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <%= link_to 'Créer un compte', new_user_path, class: "dropdown-item" %>
+                  <%= link_to 'Se connecter', new_session_path, class: "dropdown-item" %>
+                </div>
+              </div>           
+            <% end %>
           </span>
         </nav>
       </header>
