@@ -19,19 +19,13 @@ Les différentes tables :
 * `gossips` : chaque gossip est lié à un utilisateur
 * `tags` : un gossip peut avoir plusieurs tags
 * `gossip_tags` : table qui lie gossips et tags
+* `comments` : commentaires qui appartiennent à un gossip
+* `likes` : un user peut liker un (ou plusieurs) gossip puis unliker
 * `private_messages` : contenu envoyé par un utilisateur à un (ou plusieurs) autre utilisateur
 
+<h2>Architecture</h2>
+
 ![Architecture Base de données](app/assets/images/db.png)
-
-<h2>Relations</h2>
-
-1-to-n :
-* `cities` - `users`
-* `users` - `gossips`
-
-n-to-n :
-* `gossips` - `tags` (liés par `gossip_tags`)
-* `users` - `users` (liés par `private_messages`)
 
 <h2>Améliorations possibles</h2>
 
