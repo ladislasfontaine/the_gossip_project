@@ -25,10 +25,21 @@
       <!-- on fait une boucle pour afficher chaque gossip -->
       <div class="card my-4 mx-auto" style="max-width: 50rem;">
         <div class="card-body">
-          <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
+          <h5 class="card-title">
+            <%= gossip.id %>. <%= gossip.title %> 
+            (<%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'like' : 'likes' %>)
+          </h5>
           <p class="card-text"><%= gossip.content %></p>
           <p class="card-text"><%= user.first_name %></p>
-          <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
+          <%= link_to 'Go', gossip_path(gossip.id), class: "btn btn-primary" %>
+          <% if logged_in? %>
+            <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= link_to 'Unlike', gossip_like_path(gossip.id, pre_like.id), method: :delete %>
+            <% else %>
+              <%= link_to 'Like', gossip_likes_path(gossip.id), method: :post %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>

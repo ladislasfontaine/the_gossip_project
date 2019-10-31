@@ -9,4 +9,5 @@ class Gossip < ApplicationRecord
   # méthode qui permet de supprimer les comments associés dans la BDD
   has_many :gossip_tags
   has_many :tags, through: :gossip_tags
+  has_many :likes, dependent: :destroy
 end

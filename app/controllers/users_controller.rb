@@ -19,4 +19,9 @@ class UsersController < ApplicationController
       render new_user_path
     end
   end
+
+  def show
+    # @gossip = Gossip.find(params[:id])
+    @user = User.find(params[:id])
+  end
 end

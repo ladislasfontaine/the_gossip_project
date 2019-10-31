@@ -39,7 +39,7 @@
       <h5 class="card-title"><%= gossip.id %>. <%= gossip.title %></h5>
       <p class="card-text"><%= gossip.content %></p>
       <p class="card-text"><%= @user.first_name %></p>
-      <span class="btn btn-primary"><%= link_to 'Go', gossip_path(gossip.id) %></span>
+      <%= link_to 'Go', gossip_path(gossip.id), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
