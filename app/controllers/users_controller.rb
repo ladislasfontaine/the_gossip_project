@@ -12,7 +12,9 @@ class UsersController < ApplicationController
       city: City.last
     )
     if @user.save
-      flash[:success] = "Ton compte a bien été créé."
+      log_in(@user)
+      remember(@user)
+      flash[:success] = "Ton compte a bien été créé et tu es connecté(e)."
       redirect_to root_path
     else
       flash[:danger] = "Problème, essaye à nouveau."   

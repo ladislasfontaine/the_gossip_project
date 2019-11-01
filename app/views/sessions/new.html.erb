@@ -21,6 +21,10 @@
         <%= password_field_tag 'password', nil, class: "form-control" %>
       </div>
 
+      <div class="form-group form-check">
+        <%= check_box_tag 'remember', nil, true  %> Se souvenir de moi
+      </div>
+
       <%= submit_tag "Se connecter ✅", class: "btn btn-primary" %><br>
       <%= link_to 'Pas encore inscrit ? Créer un compte', new_user_path, class: 'blue_link' %>
     <% end %>
